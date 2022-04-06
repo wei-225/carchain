@@ -73,7 +73,7 @@ App = {
 
     App.contracts.Adoption.deployed().then(function(instance) {
       adoptionInstance = instance;
-
+    
       return adoptionInstance.getAdopters.call();
     }).then(function(adopters) {
       for (i = 0; i < adopters.length; i++) {
@@ -97,12 +97,12 @@ App = {
       if (error) {
         console.log(error);
       }
-
+    
       var account = accounts[0];
-
+    
       App.contracts.Adoption.deployed().then(function(instance) {
         adoptionInstance = instance;
-
+    
         // Execute adopt as a transaction by sending account
         return adoptionInstance.adopt(petId, {from: account});
       }).then(function(result) {
